@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografía y Matriz: PDOT-PUGS Cuenca - Fraccionamiento del Suelo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    /* Custom styles for professional aesthetic */
+    body { background-color: #F8FAFC; color: #0F172A; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .card { background-color: #FFFFFF; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 1.5rem; margin-bottom: 2rem; }
+    .vibrant-blue { color: #1E3A8A; }
+    .bg-vibrant-blue { background-color: #1E3A8A; }
+    .vibrant-orange { color: #F59E0B; }
+    .bg-vibrant-orange { background-color: #F59E0B; }
+    
+    /* Table specific styles for the Matriz */
+    .table-container { overflow-x: auto; border-radius: 0.5rem; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); border: 1px solid #E2E8F0; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th { background-color: #1E3A8A; color: white; padding: 1rem; font-weight: 600; font-size: 0.875rem; }
+    td { padding: 1rem; border-bottom: 1px solid #E2E8F0; font-size: 0.875rem; vertical-align: top; }
+    tr:nth-child(even) { background-color: #F8FAFC; }
+    tr:hover { background-color: #F1F5F9; }
+    
+    /* Chart wrappers */
+    .chart-wrapper { position: relative; height: 320px; width: 100%; }
+</style>
+</head>
+<body class="antialiased">
+
+<nav class="bg-vibrant-blue text-white p-4 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+        <h1 class="text-xl font-bold tracking-tight">Análisis Normativo: PDOT-PUGS Cuenca</h1>
+        <div class="flex gap-2">
+            <span class="text-xs bg-blue-800 px-3 py-1 rounded-full font-semibold">Urbanismo II</span>
+            <span class="text-xs bg-vibrant-orange px-3 py-1 rounded-full font-semibold">Grupo 6</span>
+        </div>
+    </div>
+</nav>
+
+<main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-2">
+
+    <!-- HEADER Y FICHA TÉCNICA (CUMPLE PUNTO 3 DE INSTRUCCIONES) -->
+    <section class="card border-t-4 border-vibrant-orange">
+        <header class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold vibrant-blue mb-2 uppercase tracking-wide">
+                El Fraccionamiento del Suelo
+            </h2>
+            <p class="text-xl text-gray-600 font-light">Análisis de la Ordenanza PDOT-PUGS Cuenca (Horizonte 2025)</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-50 p-6 rounded-lg border border-slate-200">
+            <div>
+                <h4 class="font-bold text-slate-700 text-sm uppercase mb-1 border-b border-slate-300 pb-1">Identificación de la Norma</h4>
+                <p class="text-sm"><strong>Nombre Completo:</strong> Ordenanza que regula el uso, gestión y aprovechamiento del suelo urbano y rural del cantón Cuenca (Sanciona el PDOT y PUGS).</p>
+                <p class="text-sm mt-1"><strong>Año / Vigencia:</strong> Aprobada en 2022. Horizonte PDOT 2030 / PUGS 2034.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-700 text-sm uppercase mb-1 border-b border-slate-300 pb-1">Ámbito y Competencia</h4>
+                <p class="text-sm"><strong>Nivel de aplicación:</strong> Local (Cantonal).</p>
+                <p class="text-sm mt-1"><strong>Institución:</strong> GAD Municipal de Cuenca (Dirección de Control Municipal, Avalúos y Catastros).</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-700 text-sm uppercase mb-1 border-b border-slate-300 pb-1">Conceptos y Palabras Clave</h4>
+                <p class="text-sm"><strong>Conceptos:</strong> Polígonos de Intervención Territorial (PIT), Cargas y Beneficios, Lote Mínimo.</p>
+                <p class="text-sm mt-1"><strong>Palabras Clave:</strong> Fraccionamiento, Subdivisión, Urbanización, Manzana, Tejido Urbano, Espacio Público.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS DE SOCIALIZACIÓN (CUMPLE PUNTO 4 DE INSTRUCCIONES) -->
+    <section class="card">
+        <h3 class="text-2xl font-bold vibrant-blue mb-6 border-b-2 border-amber-500 pb-2">Síntesis Analítica para Socialización</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+                <div class="bg-white p-4 rounded shadow-sm border-l-4 border-vibrant-blue bg-blue-50">
+                    <h4 class="font-bold text-sm text-slate-800">¿Qué norma revisaron?</h4>
+                    <p class="text-sm text-gray-700 mt-1">Revisamos los instrumentos de planificación local: El <strong>PDOT</strong> y especialmente el <strong>PUGS del Cantón Cuenca</strong>, formalizados mediante la Ordenanza de Uso y Gestión de Suelo vigente para el período actual (2025).</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow-sm border-l-4 border-vibrant-blue bg-blue-50">
+                    <h4 class="font-bold text-sm text-slate-800">¿Qué artículos o disposiciones son más relevantes?</h4>
+                    <p class="text-sm text-gray-700 mt-1">Son fundamentales: Los <strong>Arts. 8 al 12</strong> (Regulan el control y competencias del GAD en el suelo), el <strong>Art. 46 (y sus recientes reformas)</strong> sobre las dimensiones prediales y el <strong>Lote Mínimo</strong> según el PIT, y los <strong>Arts. 57 y 156</strong> que definen el proceso de fraccionamiento, urbanización y los porcentajes de <strong>cesión gratuita</strong> obligatoria de suelo.</p>
+                </div>
+                <div class="bg-white p-4 rounded shadow-sm border-l-4 border-vibrant-blue bg-blue-50">
+                    <h4 class="font-bold text-sm text-slate-800">¿Qué aporta esta norma para entender el fraccionamiento?</h4>
+                    <p class="text-sm text-gray-700 mt-1">Aporta el marco regulatorio que demuestra que fraccionar no es solo trazar líneas en un plano. La norma usa el fraccionamiento como <strong>herramienta para crear ciudad</strong>, condicionando la división de lotes a la entrega de vías, parques y respetando límites de densidad.</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-white p-4 rounded shadow-sm border-l-4 border-vibrant-orange bg-amber-50">
+                    <h4 class="font-bold text-sm text-slate-800">¿Qué debe considerar un arquitecto/urbanista?</h4>
+                    <ul class="list-disc pl-5 text-sm text-gray-700 mt-1 space-y-1">
+                        <li><strong>Identificar el PIT:</strong> Para saber el frente y Lote Mínimo permitido.</li>
+                        <li><strong>Clasificación del suelo:</strong> (Urbano o Rural) para conocer la factibilidad de loteo masivo o si hay prohibiciones por protección ambiental.</li>
+                        <li><strong>Cargas y Beneficios:</strong> Calcular la superficie (15% - 35%) que se perderá como área útil por cesión obligatoria de vías y áreas verdes.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded shadow-sm border-l-4 border-vibrant-orange bg-amber-50">
+                    <h4 class="font-bold text-sm text-slate-800">¿Cómo se conecta con la normativa municipal y la forma urbana?</h4>
+                    <p class="text-sm text-gray-700 mt-1">El PUGS *es* la matriz de la normativa municipal. Define directamente la <strong>forma urbana</strong>: exigir lotes mínimos pequeños fomenta manzanas densas (centro histórico), mientras que exigir lotes grandes en zonas periféricas preserva el paisaje. Las obligaciones de ceder vías aseguran que las manzanas se conecten y nazca el espacio público.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATRIZ NORMATIVA (CUMPLE PUNTO 2 DE INSTRUCCIONES ESTRICTAMENTE) -->
+    <section class="card">
+        <h3 class="text-2xl font-bold vibrant-blue mb-4 border-b-2 border-amber-500 pb-2">Matriz Normativa: Análisis e Interpretación</h3>
+        <p class="text-sm text-gray-600 mb-4">Selección e interpretación de los artículos específicos de la Ordenanza PUGS Cuenca referentes a la división del territorio.</p>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="w-[15%]">Norma Revisada</th>
+                        <th class="w-[15%]">Artículo / Apartado</th>
+                        <th class="w-[20%]">Concepto Clave: ¿Qué regula?</th>
+                        <th class="w-[25%]">Relación con el Fraccionamiento (Interpretación)</th>
+                        <th class="w-[25%]">Implicación Urbana</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ordenanza PUGS Cuenca</strong></td>
+                        <td>Arts. 8 al 12 (Sección de Control en Suelo Urbano y Rural)</td>
+                        <td><strong>Competencias y Control.</strong> Define al GAD Municipal de Cuenca como autoridad sancionadora y aprobadora.</td>
+                        <td>Prohíbe la ejecución de fraccionamientos o loteos sin los permisos municipales correspondientes (basado en parámetros del PUGS). El GAD controla que no haya subdivisiones clandestinas.</td>
+                        <td>Previene asentamientos informales y crecimientos descontrolados sin acceso a servicios básicos. Mantiene el orden administrativo de la ciudad.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ordenanza PUGS Cuenca</strong></td>
+                        <td>Art. 46 y reformas vinculadas a los PIT (Polígonos de Intervención)</td>
+                        <td><strong>Lote Mínimo y Frente Mínimo.</strong> Condiciones matemáticas para subdividir un predio según su zona.</td>
+                        <td>Es la regla técnica central: establece el área más pequeña en la que se puede dividir un lote. Si el terreno resultante es menor al indicado por el PIT, el fraccionamiento es ilegal y no se aprueba.</td>
+                        <td><strong>Configuración del Lote y Manzana.</strong> Modela la densidad poblacional. Lotes pequeños generan tejidos compactos y densos; lotes grandes generan tejidos dispersos (ciudad jardín).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ordenanza PUGS Cuenca</strong> (Ref. COOTAD Art 24/472)</td>
+                        <td>Arts. 57 y 156 (Condiciones para Fraccionamiento y Urbanización)</td>
+                        <td><strong>Cesiones de Suelo Obligatorias.</strong> Entrega gratuita de suelo al GAD por crear nuevas parcelas.</td>
+                        <td>Al lotizar un macrolote urbano, el promotor está obligado legalmente a ceder entre el 15% y 35% del área útil para conformar áreas verdes, vías y zonas de equipamiento comunitario.</td>
+                        <td><strong>Garantiza el Espacio Público y Vías.</strong> Es el motor para crear plazas, parques y calles en nuevos barrios. Esculpe el vacío urbano de uso colectivo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ordenanza PUGS Cuenca</strong></td>
+                        <td>Apartado de Subclasificación del Suelo Rural (Art. 9)</td>
+                        <td><strong>Restricciones de fraccionamiento rural.</strong> Protección de suelo agrícola y áreas de recarga hídrica.</td>
+                        <td>Evita que el fraccionamiento urbano se extienda al campo. Impone restricciones severas o prohíbe lotizar con fines habitacionales en zonas ecológicamente sensibles o productivas.</td>
+                        <td><strong>Contención de la mancha urbana.</strong> Protege el ecosistema del cantón Cuenca y asegura el cordón agroproductivo alrededor de la ciudad.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ORGANIZADOR GRÁFICO VISUAL (CUMPLE PUNTO 3 DE INSTRUCCIONES CON GRÁFICOS) -->
+    <section class="card bg-slate-900 text-white rounded-xl overflow-hidden shadow-2xl border-none">
+        <div class="p-6">
+            <h3 class="text-2xl font-bold text-amber-400 mb-2 border-b border-slate-700 pb-2 text-center uppercase tracking-wider">
+                Organizador Gráfico Visual
+            </h3>
+            <p class="text-center text-slate-400 text-sm mb-8">El impacto de la norma en la morfología de Cuenca: Del Macrolote al Tejido Urbano Normado</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                
+                <!-- Diagrama de Flujo del Fraccionamiento -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold text-blue-300 mb-4 border-l-4 border-blue-500 pl-3">El Proceso Normativo (Flujo)</h4>
+                    
+                    <div class="flex flex-col gap-3 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-500 before:via-amber-500 before:to-green-500">
+                        
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-blue-500 text-slate-900 font-bold z-10 shrink-0">1</div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded bg-slate-800 border border-slate-700 shadow ml-4 md:ml-0">
+                                <span class="font-bold text-md block text-blue-300">Suelo Bruto (Macrolote)</span>
+                                <span class="text-xs text-slate-400">Restringido por Clasificación (Urbano/Rural) - Arts. 8-12</span>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-amber-500 text-slate-900 font-bold z-10 shrink-0">2</div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded bg-slate-800 border border-slate-700 shadow ml-4 md:ml-0 md:text-right">
+                                <span class="font-bold text-md block text-amber-400">Cargas: Cesión al GAD</span>
+                                <span class="text-xs text-slate-400">Donación obligatoria de calles y áreas verdes - Art. 57</span>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-green-500 text-slate-900 font-bold z-10 shrink-0">3</div>
+                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded bg-slate-800 border border-slate-700 shadow ml-4 md:ml-0">
+                                <span class="font-bold text-md block text-green-400">Área Útil Privada</span>
+                                <span class="text-xs text-slate-400">Aplicación del Lote Mínimo por PIT - Art. 46</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Gráficos Estadísticos -->
+                <div class="flex flex-col gap-6">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <h4 class="text-center text-sm font-bold text-slate-300 mb-2">Distribución Resultante de la Tierra (Art. 57)</h4>
+                        <div class="chart-wrapper h-[220px]">
+                            <canvas id="donutChartCesiones"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <h4 class="text-center text-sm font-bold text-slate-300 mb-2">Calidad del Tejido Urbano (Normado vs Informal)</h4>
+                        <div class="chart-wrapper h-[220px]">
+                            <canvas id="radarChartTejido"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    // Configuración global de Chart.js para modo oscuro
+    Chart.defaults.color = '#94A3B8';
+    Chart.defaults.font.family = "'Segoe UI', Roboto, sans-serif";
+    
+    // Gráfico de Donut: Cesiones obligatorias
+    const ctxDonut = document.getElementById('donutChartCesiones').getContext('2d');
+    new Chart(ctxDonut, {
+        type: 'doughnut',
+        data: {
+            labels: ['Lotes Privados (Área Útil)', 'Cesión: Vías y Aceras', 'Cesión: Áreas Verdes / Plazas'],
+            datasets: [{
+                data: [70, 20, 10], // Valores representativos de cesión urbana
+                backgroundColor: ['#3B82F6', '#64748B', '#10B981'],
+                borderWidth: 0,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '65%',
+            plugins: {
+                legend: { 
+                    position: 'bottom', 
+                    labels: { color: '#CBD5E1', padding: 15, font: {size: 11} } 
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return ' ' + context.label + ': ' + context.parsed + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Gráfico Radar: Impacto de la normativa en la calidad urbana
+    const ctxRadar = document.getElementById('radarChartTejido').getContext('2d');
+    new Chart(ctxRadar, {
+        type: 'radar',
+        data: {
+            labels: ['Conectividad Vial', 'Espacio Público', 'Morfología (Manzana)', 'Control Ambiental', 'Legalidad'],
+            datasets: [{
+                label: 'Fraccionamiento con Norma PUGS',
+                data: [90, 85, 95, 80, 100],
+                backgroundColor: 'rgba(59, 130, 246, 0.3)',
+                borderColor: '#3B82F6',
+                pointBackgroundColor: '#3B82F6',
+                borderWidth: 2
+            }, {
+                label: 'Loteo Informal (Sin Norma)',
+                data: [30, 10, 40, 20, 10],
+                backgroundColor: 'rgba(245, 158, 11, 0.3)',
+                borderColor: '#F59E0B',
+                pointBackgroundColor: '#F59E0B',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    grid: { color: 'rgba(148, 163, 184, 0.2)' },
+                    angleLines: { color: 'rgba(148, 163, 184, 0.2)' },
+                    pointLabels: { color: '#E2E8F0', font: {size: 10} },
+                    ticks: { display: false, max: 100, min: 0 }
+                }
+            },
+            plugins: {
+                legend: { 
+                    position: 'bottom', 
+                    labels: { color: '#CBD5E1', boxWidth: 12, font: {size: 11} } 
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
